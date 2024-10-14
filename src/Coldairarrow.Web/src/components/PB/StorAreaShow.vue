@@ -6,6 +6,7 @@
 <script>
 export default {
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     value: { type: Array, required: false },
     disabled: { type: Boolean, default: false, required: false }
   },
@@ -21,12 +22,12 @@ export default {
       this.getAreaData()
     }
   },
-  mounted(){
-    this.areaList=[]
+  mounted() {
+    this.areaList = []
   },
   methods: {
     getAreaData() {
-      this.areaList=[]
+      this.areaList = []
       this.$http.post('/PB/PB_StorArea/Query').then(resJson => {
         resJson.Data.forEach(element => {
           if (this.curValue.indexOf(element.Id) > -1) {
