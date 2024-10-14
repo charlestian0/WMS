@@ -229,7 +229,7 @@ namespace Coldairarrow.Business
         /// </returns>
         public int DeleteSql(Expression<Func<T, bool>> where)
         {
-            return Db.DeleteSql(where);
+            return Db.Delete_Sql(where);
         }
 
         /// <summary>
@@ -243,7 +243,7 @@ namespace Coldairarrow.Business
         /// </returns>
         public async Task<int> DeleteSqlAsync(Expression<Func<T, bool>> where)
         {
-            return await Db.DeleteSqlAsync(where);
+            return await Db.Delete_SqlAsync(where);
         }
 
         #endregion
@@ -316,7 +316,7 @@ namespace Coldairarrow.Business
         /// <returns>影响条数</returns>
         public int UpdateSql(Expression<Func<T, bool>> where, params (string field, UpdateType updateType, object value)[] values)
         {
-            return Db.UpdateSql(where, values);
+            return Db.Update(values);
         }
 
         /// <summary>
@@ -329,7 +329,7 @@ namespace Coldairarrow.Business
         /// <returns>影响条数</returns>
         public async Task<int> UpdateSqlAsync(Expression<Func<T, bool>> where, params (string field, UpdateType updateType, object value)[] values)
         {
-            return await Db.UpdateSqlAsync(where, values);
+            return await Db.UpdateAsync(values);
         }
 
         #endregion

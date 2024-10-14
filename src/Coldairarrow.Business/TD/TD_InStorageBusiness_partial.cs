@@ -428,8 +428,9 @@ namespace Coldairarrow.Business.TD
             var skip = RandomHelper.Next(0, count - 1);
             var result = await LocalQuery.Skip(skip).Take(1).FirstOrDefaultAsync();
 
+
             //锁定货位
-            await Db.UpdateSqlAsync<PB_Location>(w => w.Id == result.Id, ("LockType", UpdateType.Equal, 1));
+            await Db.Update_SqlAsync<PB_Location>(w => w.Id == result.Id, ("LockType", UpdateType.Equal, 1));
 
             return result.Id;
         }
